@@ -38,11 +38,12 @@ for genre in genres:
     for file in os.listdir(genre_dir):
         file_path = os.path.join(genre_dir, file)
         data = extract_features(file_path)
-        print("RETURNED CORRECTLY")
         if data is not None:
             features.append(data)
             labels.append(genres.index(genre))
+            print(labels)
 
+print(labels)
 
 # X = np.array(features)
 # y = np.array(labels)

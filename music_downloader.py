@@ -14,7 +14,7 @@ def downloadyoutubeaudio(videourl, outputpath):
 
 
 # Replace 'VIDEO_URL' with the URL of the YouTube video you want to download audio from
-video_url = "https://www.youtube.com/watch?v=-noaPoOwAas"
+video_url = "https://www.youtube.com/watch?v=mmCnQDUSO4I&list=RDQMRbwMJT-AZ9I&index=6"
 #Replace 'OUTPUT_PATH' with the path where you want to save the downloaded audio file
 output_path = "./TrainingMusic/classical"
 downloadyoutubeaudio(video_url, output_path)
