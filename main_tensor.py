@@ -15,7 +15,7 @@ def extract_features(file_path, max_pad_len=174):
         print(f"Error encountered while parsing file: {file_path}")
         return None
 
-data_path = 'C:\\Users\\theze\\OneDrive\\Desktop\\TrainingMusic'
+data_path = './TrainingMusic'
 genres = 'classical country disco hiphop jazz metal pop rock'.split()
 
 features = []
