@@ -8,10 +8,9 @@ def extract_features(file_path, max_pad_len=174):
     target_frames = max_pad_len
     try:
         print("FILE PATH " + file_path)
-        audio, sample_rate = librosa.load(file_path, res_type='kaiser_fast', duration=10) 
+        audio, sample_rate = librosa.load(file_path, res_type='kaiser_fast', duration=50) 
         mfccs = librosa.feature.mfcc(y=audio, sr=sample_rate, n_mfcc=40)
         current_frames = mfccs.shape[1]
-        print(current_frames)
         # Pad or trim the MFCC matrix to ensure it has exactly target_frames
         if current_frames < target_frames:
             pad_width = target_frames - current_frames
@@ -41,18 +40,19 @@ for genre in genres:
         if data is not None:
             features.append(data)
             labels.append(genres.index(genre))
-            print(labels)
-
 print(labels)
 
-# X = np.array(features)
-# y = np.array(labels)
+X = np.array(features)
+y = np.array(labels)
 
-# # Normalize the data
-# X = (X - np.mean(X)) / np.std(X)
+# Normalize the data
+X = (X - np.mean(X)) / np.std(X)
 
-# # One-hot encode the labels
-# y = tf.keras.utils.to_categorical(y, num_classes=len(genres))
+# One-hot encode the labels
+y = tf.keras.utils.to_categorical(y, num_classes=len(genres))
 
-# # Train-test split
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+print("made it here")
